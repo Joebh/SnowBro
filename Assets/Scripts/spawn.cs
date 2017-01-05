@@ -17,9 +17,12 @@ public class spawn : MonoBehaviour {
 
     void Spawn()
     {
-        GameObject obj = objects[Random.Range(0, objects.GetLength(0))];
-        GameObject clone = Instantiate(obj, obj.transform.position, Quaternion.identity);
-        clone.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value = new Vector3(0, speed, 0);
+        if (this.enabled)
+        {
+            GameObject obj = objects[Random.Range(0, objects.GetLength(0))];
+            GameObject clone = Instantiate(obj, obj.transform.position, Quaternion.identity);
+            clone.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value = new Vector3(0, speed, 0);
+        }       
 
         Invoke("Spawn", Random.Range(spawnMin, spawnMax));
     }

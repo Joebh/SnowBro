@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class snowman : MonoBehaviour {
-        
-    private float health = 100f;
+
+    public MonoBehaviour[] scriptsToPause;
+
+    private bool dead = false;
+
+    // number of arms
+    private int arms = 2;
+
+    // number of body 3 is the largest
+    private int body = 3;
     private Rigidbody2D rb2d;
     private Animator anim;
 
@@ -33,18 +41,47 @@ public class snowman : MonoBehaviour {
         }
 	}
 
+    void OnAnimationDone()
+    {
+        anim.SetTrigger("Walk");
+
+        if (!dead)
+        {
+            Debug.Log("Starting game after animation");
+            foreach (MonoBehaviour mb in scriptsToPause)
+            {
+                mb.enabled = true;
+            }
+        }
+        else
+        {
+            Debug.Log("End game");
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.name == "hottub")
+        if (other.collider.tag != "Ground")
         {
             Destroy(other.collider.gameObject);
+
+            foreach (MonoBehaviour mb in scriptsToPause)
+            {
+                mb.enabled = false;
+            }
         }
-        else if (other.collider.name == "shot")
+
+        if (other.collider.name.StartsWith("hottub"))
+        {            
+            anim.SetTrigger("DeathByHottub");
+            dead = true;            
+        }
+        else if (other.collider.name.StartsWith("shot"))
         {
-            Destroy(other.collider.gameObject);
+            anim.SetTrigger("TakeShot");           
         }
-        else if (other.collider.name == "bro") {
-            Destroy(other.collider.gameObject);
+        else if (other.collider.name.StartsWith("bro")) {
+            anim.SetTrigger("HighFive");
         }
     }
 }
