@@ -45,6 +45,11 @@ public class snowman : MonoBehaviour {
     {
         anim.SetTrigger("Walk");
 
+        if (arms == 0 || body == 0)
+        {
+            dead = true;
+        }
+
         if (!dead)
         {
             Debug.Log("Starting game after animation");
@@ -78,10 +83,12 @@ public class snowman : MonoBehaviour {
         }
         else if (other.collider.name.StartsWith("shot"))
         {
-            anim.SetTrigger("TakeShot");           
+            anim.SetTrigger("TakeShot");
+            body--;
         }
         else if (other.collider.name.StartsWith("bro")) {
             anim.SetTrigger("HighFive");
+            arms--;
         }
     }
 }
