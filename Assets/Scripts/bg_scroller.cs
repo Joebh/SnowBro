@@ -6,23 +6,29 @@ public class bg_scroller : MonoBehaviour {
 
     public float scrollSpeed = 1f;
     private Vector2 savedOffset;
+    private Vector2 usedOffset;
     private Renderer myRenderer;
 
 	// Use this for initialization
 	void Start () {
         myRenderer = GetComponent<Renderer>();
         savedOffset = myRenderer.sharedMaterial.GetTextureOffset("_MainText");
+        usedOffset = new Vector2(savedOffset.x, savedOffset.y);
     }
 
     void Update()
     {
-        float y = Mathf.Repeat(Time.time * scrollSpeed, 1);
-        Vector2 offset = new Vector2(savedOffset.x, -1 * y);
-        myRenderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
+        if (this.enabled)
+        {
+            float y = Mathf.Repeat(Time.deltaTime * scrollSpeed, 1);
+            usedOffset.y = (usedOffset.y - y) % -1;
+            myRenderer.sharedMaterial.SetTextureOffset("_MainTex", usedOffset);
+        }
+        
     }
 
     void OnDisable()
     {
-        myRenderer.sharedMaterial.SetTextureOffset("_MainTex", savedOffset);
+       //  myRenderer.sharedMaterial.SetTextureOffset("_MainTex", savedOffset);
     }
 }
