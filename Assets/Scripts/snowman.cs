@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class snowman : MonoBehaviour {
 
     public MonoBehaviour[] scriptsToPause;
+
+    static public float score = -1f;
 
     private bool dead = false;
 
@@ -68,7 +71,6 @@ public class snowman : MonoBehaviour {
 
         if (!dead)
         {
-            Debug.Log("Starting game after animation");
             foreach (MonoBehaviour mb in scriptsToPause)
             {
                 mb.enabled = true;
@@ -76,7 +78,8 @@ public class snowman : MonoBehaviour {
         }
         else
         {
-            Debug.Log("End game");
+            score = Time.timeSinceLevelLoad;
+            SceneManager.LoadScene("intro");
         }
     }
 
