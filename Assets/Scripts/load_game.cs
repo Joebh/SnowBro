@@ -65,6 +65,12 @@ public class load_game : MonoBehaviour {
             highScores.scores.Add(snowman.score);
 
             highScores.scores.Sort(new Comp());
+
+            if (highScores.scores.Count > 10)
+            {
+                highScores.scores.RemoveRange(10, highScores.scores.Count - 10);
+            }
+            
         }
 
         // save the file with the updated scores
