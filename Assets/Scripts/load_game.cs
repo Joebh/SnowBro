@@ -83,7 +83,22 @@ public class load_game : MonoBehaviour {
 
         foreach(float score in highScores.scores)
         {
+            if (snowman.score == score)
+            {
+                text.text += "<color=\"red\">";
+            }
             text.text += score + "\n";
+            if (snowman.score == score)
+            {
+                text.text += "</color>";
+            }
+        }
+
+        if (snowman.score != -1f)
+        {
+            var loadText = GetComponentInChildren<Text>();
+
+            loadText.text = "You only lasted " + snowman.score + " seconds bra.\nBro down again?";
         }
     }
     

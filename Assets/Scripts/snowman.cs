@@ -78,7 +78,7 @@ public class snowman : MonoBehaviour {
         }
         else
         {
-            score = Time.timeSinceLevelLoad;
+            score = Mathf.Round(Time.timeSinceLevelLoad * 100f) / 100f;
             SceneManager.LoadScene("intro");
         }
     }
