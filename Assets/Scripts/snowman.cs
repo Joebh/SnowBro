@@ -26,6 +26,7 @@ public class snowman : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = Vector2.zero;
         anim = GetComponent<Animator>();
+
 	}
 
     public void Left()
@@ -44,6 +45,8 @@ public class snowman : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        anim.SetFloat("horizontal_speed", rb2d.velocity.x);
+
         if (direction == 1)
         {
             if (rb2d.velocity.x < 12f)
@@ -58,7 +61,7 @@ public class snowman : MonoBehaviour {
                 rb2d.AddForce(new Vector2(-30f, 0));
             }
         }
-	}
+    }
 
     void OnAnimationDone()
     {
