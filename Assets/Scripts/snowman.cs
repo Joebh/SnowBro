@@ -26,7 +26,6 @@ public class snowman : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = Vector2.zero;
         anim = GetComponent<Animator>();
-
 	}
 
     public void Left()
@@ -42,10 +41,33 @@ public class snowman : MonoBehaviour {
     {
         direction = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         anim.SetFloat("horizontal_speed", rb2d.velocity.x);
+
+        float absX = Mathf.Abs(rb2d.velocity.x);
+        if (absX < 4f)
+        {
+            // controls how fast snowbro goes down
+            if (rb2d.velocity.y > -12f)
+            {
+                rb2d.AddForce(new Vector2(0, -2f));
+            }
+        }
+        else if (absX > 7f)
+        {
+            // how fast you can cut up hill
+            if (rb2d.velocity.y < 10f)
+            {
+                rb2d.AddForce(new Vector2(0, 2f));
+            }
+        }
+        else
+        {
+            rb2d.velocity = new Vector3(rb2d.velocity.x, 0, 0);
+        }
+
 
         if (direction == 1)
         {

@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 173d78a6812725b4aa5e75f78c10ab0d
-timeCreated: 1483970965
+guid: 15dd77970e6d1884a845fb05da54dba8
+timeCreated: 1484142739
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: snowbroturn_0
-    21300002: snowbroturn_1
-    21300004: snowbroturn_2
-    21300006: snowbroturn_3
-    21300008: snowbroturn_4
-    21300010: snowbroturn_5
-    21300012: snowbroturn_6
-    21300014: snowbroturn_7
+    21300000: snowbro_turn_left_0
+    21300002: snowbro_turn_left_1
+    21300004: snowbro_turn_left_2
+    21300006: snowbro_turn_left_3
+    21300008: snowbro_turn_left_4
+    21300010: snowbro_turn_left_5
+    21300012: snowbro_turn_left_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -78,62 +77,36 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowbroturn_0
+      name: snowbro_turn_left_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 40
-        width: 203
-        height: 532
+        x: 6
+        y: 72
+        width: 476
+        height: 508
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowbroturn_1
+      name: snowbro_turn_left_1
       rect:
         serializedVersion: 2
-        x: 496
-        y: 34
-        width: 228
-        height: 543
+        x: 551
+        y: 31
+        width: 443
+        height: 552
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowbroturn_2
+      name: snowbro_turn_left_2
       rect:
         serializedVersion: 2
-        x: 862
-        y: 21
-        width: 308
-        height: 546
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: snowbroturn_3
-      rect:
-        serializedVersion: 2
-        x: 1240
-        y: 46
-        width: 373
-        height: 513
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: snowbroturn_4
-      rect:
-        serializedVersion: 2
-        x: 1687
+        x: 1090
         y: 18
         width: 420
         height: 540
@@ -143,39 +116,52 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowbroturn_5
+      name: snowbro_turn_left_3
       rect:
         serializedVersion: 2
-        x: 2203
-        y: 31
-        width: 437
-        height: 514
+        x: 1584
+        y: 46
+        width: 373
+        height: 513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowbroturn_6
+      name: snowbro_turn_left_4
       rect:
         serializedVersion: 2
-        x: 2715
-        y: 72
-        width: 476
-        height: 486
+        x: 2027
+        y: 21
+        width: 308
+        height: 546
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: snowbroturn_7
+      name: snowbro_turn_left_5
       rect:
         serializedVersion: 2
-        x: 2998
-        y: 51
-        width: 6
-        height: 6
+        x: 2473
+        y: 34
+        width: 231
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_turn_left_6
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 40
+        width: 190
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
