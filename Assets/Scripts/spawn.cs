@@ -11,7 +11,6 @@ public class spawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Spawn();
 	}
 
     void Spawn()

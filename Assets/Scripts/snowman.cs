@@ -20,20 +20,37 @@ public class snowman : MonoBehaviour {
     private Animator anim;
 
     private int direction;
+    private bool droppingIn = true;
 
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = Vector2.zero;
         anim = GetComponent<Animator>();
-	}
+
+        foreach (MonoBehaviour mb in scriptsToPause)
+        {
+            mb.enabled = false;
+        }
+        
+
+        anim.SetTrigger("DropIn");
+    }
 
     public void Left()
     {
+        if (droppingIn)
+        {
+            return;
+        }
         direction = -1;
     }
     public void Right()
     {
+        if (droppingIn)
+        {
+            return;
+        }
         direction = 1;
     }
 
@@ -91,6 +108,7 @@ public class snowman : MonoBehaviour {
 
     void OnAnimationDone()
     {
+        droppingIn = false;
         anim.SetTrigger("Walk");
 
         if (arms == 0 || body == 0)
