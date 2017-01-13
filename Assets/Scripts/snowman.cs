@@ -44,6 +44,10 @@ public class snowman : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!this.enabled)
+        {
+            return;
+        }
         anim.SetFloat("horizontal_speed", rb2d.velocity.x);
 
         float absX = Mathf.Abs(rb2d.velocity.x);
@@ -100,6 +104,7 @@ public class snowman : MonoBehaviour {
             {
                 mb.enabled = true;
             }
+            this.enabled = true;
         }
         else
         {
@@ -118,6 +123,9 @@ public class snowman : MonoBehaviour {
             {
                 mb.enabled = false;
             }
+
+            this.enabled = false;
+            rb2d.velocity = new Vector3(0, 0, 0);
         }
 
         if (other.collider.name.StartsWith("hottub"))

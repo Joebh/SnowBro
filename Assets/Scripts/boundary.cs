@@ -6,6 +6,10 @@ public class boundary : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag == "Ground")
+        {
+            return;
+        }
         if (other.gameObject.transform.parent)
         {
             Destroy(other.gameObject.transform.parent.gameObject);
