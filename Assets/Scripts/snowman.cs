@@ -32,7 +32,6 @@ public class snowman : MonoBehaviour {
         {
             mb.enabled = false;
         }
-        
 
         anim.SetTrigger("DropIn");
     }
@@ -61,7 +60,7 @@ public class snowman : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!this.enabled)
+        if (!enabled)
         {
             return;
         }
@@ -106,6 +105,16 @@ public class snowman : MonoBehaviour {
         }
     }
 
+    void OnEnable()
+    {
+        Debug.Log("enabled");
+    }
+
+    void OnDisabled()
+    {
+        Debug.Log("disabled");
+    }
+
     void OnAnimationDone()
     {
         droppingIn = false;
@@ -118,11 +127,13 @@ public class snowman : MonoBehaviour {
 
         if (!dead)
         {
+            enabled = true;
+
             foreach (MonoBehaviour mb in scriptsToPause)
             {
                 mb.enabled = true;
             }
-            this.enabled = true;
+            
         }
         else
         {
@@ -142,7 +153,7 @@ public class snowman : MonoBehaviour {
                 mb.enabled = false;
             }
 
-            this.enabled = false;
+            enabled = false;
             rb2d.velocity = new Vector3(0, 0, 0);
         }
 

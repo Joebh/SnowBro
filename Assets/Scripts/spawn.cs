@@ -12,7 +12,7 @@ public class spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-
+    
     void Spawn()
     {
         GameObject obj = objects[Random.Range(0, objects.GetLength(0))];
@@ -24,7 +24,7 @@ public class spawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (this.enabled && spawned == null)
+        if (enabled && spawned == null)
         {
             Spawn();
         }
