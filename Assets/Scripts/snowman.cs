@@ -19,8 +19,14 @@ public class snowman : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
 
-    private int direction;
     private bool droppingIn = true;
+
+    private float fingerStartTime = 0.0f;
+    private Vector2 fingerStartPos = Vector2.zero;
+
+    private bool isSwipe = false;
+    private float minSwipeDist = 50.0f;
+    private float maxSwipeTime = 0.5f;
 
     // Use this for initialization
     void Start () {
@@ -34,28 +40,6 @@ public class snowman : MonoBehaviour {
         }
 
         anim.SetTrigger("DropIn");
-    }
-
-    public void Left()
-    {
-        if (droppingIn)
-        {
-            return;
-        }
-        direction = -1;
-    }
-    public void Right()
-    {
-        if (droppingIn)
-        {
-            return;
-        }
-        direction = 1;
-    }
-
-    public void DonePressing()
-    {
-        direction = 0;
     }
 
     // Update is called once per frame
@@ -89,20 +73,88 @@ public class snowman : MonoBehaviour {
         }
 
 
-        if (direction == 1)
+        if (Input.touchCount > 0)
         {
-            if (rb2d.velocity.x < 12f)
+            Debug.Log(Input.touches);
+            foreach (Touch touch in Input.touches)
             {
-                rb2d.AddForce(new Vector2(30f, 0));
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        /* this is a new touch */
+                        isSwipe = true;
+                        fingerStartTime = Time.time;
+                        fingerStartPos = touch.position;
+                        break;
+
+                    case TouchPhase.Canceled:
+                        /* The touch is being canceled */
+                        isSwipe = false;
+                        break;
+
+                    case TouchPhase.Ended:
+
+                        float gestureTime = Time.time - fingerStartTime;
+                        float gestureDist = (touch.position - fingerStartPos).magnitude;
+
+                        if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist)
+                        {
+                            Vector2 direction = touch.position - fingerStartPos;
+                            Vector2 swipeType = Vector2.zero;
+
+                            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                            {
+                                // the swipe is horizontal:
+                                swipeType = Vector2.right * Mathf.Sign(direction.x);
+                            }
+                            else {
+                                // the swipe is vertical:
+                                swipeType = Vector2.up * Mathf.Sign(direction.y);
+                            }
+
+                            if (swipeType.x != 0.0f)
+                            {
+                                if (swipeType.x > 0.0f)
+                                {
+                                    // MOVE RIGHT
+                                }
+                                else {
+                                    // MOVE LEFT
+                                }
+                            }
+
+                            if (swipeType.y != 0.0f)
+                            {
+                                if (swipeType.y > 0.0f)
+                                {
+                                    // MOVE UP
+                                }
+                                else {
+                                    // MOVE DOWN
+                                }
+                            }
+
+                        }
+
+                        break;
+                }
             }
         }
-        else if (direction == -1)
-        {
-            if (rb2d.velocity.x > -12f)
-            {
-                rb2d.AddForce(new Vector2(-30f, 0));
-            }
-        }
+
+        //if (direction == 1)
+        //{
+        //    if (rb2d.velocity.x < 12f)
+        //    {
+        //        rb2d.AddForce(new Vector2(30f, 0));
+        //    }
+        //}
+        //else if (direction == -1)
+        //{
+        //    if (rb2d.velocity.x > -12f)
+        //    {
+        //        rb2d.AddForce(new Vector2(-30f, 0));
+        //    }
+        //}
     }
 
     void OnEnable()
