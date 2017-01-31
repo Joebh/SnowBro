@@ -33,7 +33,7 @@ public class move_ground : MonoBehaviour {
             otherPiece.transform.position.z - offset.z);
 
         // change angle of parent
-        if (otherPiece.transform.parent.transform.localEulerAngles.x < 20)
+        if (otherPiece.transform.parent.transform.localEulerAngles.x < 15)
         {
             otherPiece.transform.parent.transform.localEulerAngles = new Vector3(
                 otherPiece.transform.parent.transform.localEulerAngles.x - 1.5f, 0, 0);

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityStandardAssets.Utility;
 
 public class spawn : MonoBehaviour {
-
+    
     public GameObject[] objects;
     public float speed = 7f;
     private GameObject spawned;
@@ -16,7 +16,10 @@ public class spawn : MonoBehaviour {
     void Spawn()
     {
         GameObject obj = objects[Random.Range(0, objects.GetLength(0))];
-        spawned = Instantiate(obj, obj.transform.position, Quaternion.identity);
+        Vector3 vector = obj.transform.position;
+        vector.x = Random.Range(-6, 6);
+        Debug.Log(vector);
+        spawned = Instantiate(obj, vector, Quaternion.identity);
         spawned.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value = new Vector3(0, speed, 0);
         speed += .2f;
     }
