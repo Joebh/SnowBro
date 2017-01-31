@@ -18,7 +18,6 @@ public class spawn : MonoBehaviour {
         GameObject obj = objects[Random.Range(0, objects.GetLength(0))];
         Vector3 vector = obj.transform.position;
         vector.x = Random.Range(-6, 6);
-        Debug.Log(vector);
         spawned = Instantiate(obj, vector, Quaternion.identity);
         spawned.GetComponent<AutoMoveAndRotate>().moveUnitsPerSecond.value = new Vector3(0, speed, 0);
         speed += .2f;
