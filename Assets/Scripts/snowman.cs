@@ -18,9 +18,7 @@ public class snowman : MonoBehaviour {
     private int body = 3;
     private Rigidbody2D rb2d;
     private Animator anim;
-
-    private bool droppingIn = true;
-
+    
     private Vector3 startPosition;
     private bool dragging = false;
     private int directionTravelling = 0;
@@ -223,7 +221,6 @@ public class snowman : MonoBehaviour {
 
     void OnAnimationDone()
     {
-        droppingIn = false;
         anim.SetTrigger("Walk");
 
         if (arms == 0 || body == 0)

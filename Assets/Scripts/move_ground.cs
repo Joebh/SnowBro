@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityStandardAssets.Utility;
 
 public class move_ground : MonoBehaviour {
-
+    
     public GameObject firstPiece;
     public GameObject secondPiece;
+    public GameObject[] hazards;
     
+    private int objectsToCreate = 2;
+
     // Use this for initialization
     void Start () {
         Vector3 newVector = new Vector3(0, 50f, 0);
@@ -16,12 +19,28 @@ public class move_ground : MonoBehaviour {
         secondPiece.transform.position = new Vector3(0, 
             firstPiece.transform.position.y - offset.y, 
             firstPiece.transform.position.z - offset.z);
-        
+
+        AddHazards(firstPiece);
+        AddHazards(secondPiece);
     }
 
-    void CreateTrees(GameObject piece)
+    void AddHazards(GameObject piece)
     {
+        for (var i = 0; i < objectsToCreate; i++)
+        {
+            GameObject obj = hazards[Random.Range(0, hazards.GetLength(0))];
 
+            var yMin = (50 / objectsToCreate) * i;
+            var yMax = (50 / objectsToCreate) * (i + 1);
+
+            Vector3 vector = piece.transform.TransformVector(new Vector3(Random.Range(-6, 6), Random.Range(yMin, yMax), 1.5f));
+
+            vector.x = piece.transform.position.x - vector.x;
+            vector.y = piece.transform.position.y - vector.y;
+            vector.z = piece.transform.position.z - vector.z;
+
+            Instantiate(obj, vector, Quaternion.identity, piece.transform);
+        }       
     }
 
     void UpdatePositionAndSpeed(GameObject pieceToMove, GameObject otherPiece)
@@ -46,12 +65,11 @@ public class move_ground : MonoBehaviour {
         AutoMoveAndRotate otherMoveScript = otherPiece.GetComponent<AutoMoveAndRotate>();
         otherMoveScript.moveUnitsPerSecond.value = new Vector3(0, otherMoveScript.moveUnitsPerSecond.value.y + 1, 0);
 
-        CreateTrees(pieceToMove);
+        AddHazards(pieceToMove);
     }
-    
-	
-	// Update is called once per frame
-	void Update () {
+        
+    // Update is called once per frame
+    void Update () {
         if (firstPiece.transform.position.y > 50f)
         {
             UpdatePositionAndSpeed(firstPiece, secondPiece);
