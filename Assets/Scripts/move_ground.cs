@@ -63,6 +63,13 @@ public class move_ground : MonoBehaviour {
         
     // Update is called once per frame
     void Update () {
+        // change angle of parent
+        if (firstPiece.transform.parent.transform.eulerAngles.x > 350)
+        {
+            firstPiece.transform.parent.transform.localEulerAngles = new Vector3(
+                firstPiece.transform.parent.transform.localEulerAngles.x - (.5f * Time.deltaTime), 0, 0);
+        }
+
         if (firstPiece.transform.position.y > 50f)
         {
             UpdatePositionAndSpeed(firstPiece, secondPiece);
