@@ -98,7 +98,7 @@ public class load_game : MonoBehaviour {
         {
             var loadText = GetComponentInChildren<Text>();
 
-            loadText.text = "You only lasted " + snowman.score + " seconds bra.\nBro down again?";
+            loadText.text = "You only lasted " + snowman.score + " seconds brah.\nBro down again?";
         }
     }
     

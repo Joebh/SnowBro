@@ -8,7 +8,8 @@ public class move_ground : MonoBehaviour {
     public GameObject firstPiece;
     public GameObject secondPiece;
     public GameObject[] hazards;
-    
+
+    private GameObject pieceToDrawOn;
     private int objectsToCreate = 2;
 
     // Use this for initialization
@@ -21,6 +22,8 @@ public class move_ground : MonoBehaviour {
             firstPiece.transform.position.z - offset.z);
 
         AddHazards(firstPiece);
+
+        pieceToDrawOn = firstPiece;
         AddHazards(secondPiece);
     }
 
@@ -69,7 +72,7 @@ public class move_ground : MonoBehaviour {
             firstPiece.transform.parent.transform.localEulerAngles = new Vector3(
                 firstPiece.transform.parent.transform.localEulerAngles.x - (.5f * Time.deltaTime), 0, 0);
         }
-
+       
         if (firstPiece.transform.position.y > 50f)
         {
             UpdatePositionAndSpeed(firstPiece, secondPiece);

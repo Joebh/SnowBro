@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class snowman : MonoBehaviour {
 
     public MonoBehaviour[] scriptsToPause;
+    public GameObject shadow;
 
     static public float score = -1f;
 
@@ -22,6 +23,7 @@ public class snowman : MonoBehaviour {
     private Vector3 startPosition;
     private bool dragging = false;
     private int directionTravelling = 0;
+    private GameObject groundToAddShadowTo;
     
     // Use this for initialization
     void Start () {
@@ -49,6 +51,11 @@ public class snowman : MonoBehaviour {
         if (!enabled)
         {
             return;
+        }
+
+        if (groundToAddShadowTo)
+        {
+            Instantiate(shadow, gameObject.transform.position, Quaternion.identity, groundToAddShadowTo.transform);
         }
         anim.SetFloat("horizontal_speed", rb2d.velocity.x);
 
@@ -122,91 +129,6 @@ public class snowman : MonoBehaviour {
             directionTravelling = 0;
             startPosition = Input.mousePosition;
         }
-
-        //if (Input.touchCount > 0)
-        //{
-        //    foreach (Touch touch in Input.touches)
-        //    {
-        //        switch (touch.phase)
-        //        {
-        //            case TouchPhase.Began:
-        //                /* this is a new touch */
-        //                isSwipe = true;
-        //                fingerStartTime = Time.time;
-        //                fingerStartPos = touch.position;
-        //                break;
-
-        //            case TouchPhase.Canceled:
-        //                /* The touch is being canceled */
-        //                isSwipe = false;
-        //                Debug.Log("canceled");
-        //                break;
-
-        //            case TouchPhase.Ended:
-
-        //                float gestureTime = Time.time - fingerStartTime;
-        //                float gestureDist = (touch.position - fingerStartPos).magnitude;
-
-        //                if (isSwipe && gestureTime < maxSwipeTime && gestureDist > minSwipeDist)
-        //                {
-        //                    Vector2 direction = touch.position - fingerStartPos;
-        //                    Vector2 swipeType = Vector2.zero;
-
-        //                    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        //                    {
-        //                        // the swipe is horizontal:
-        //                        swipeType = Vector2.right * Mathf.Sign(direction.x);
-        //                    }
-        //                    else {
-        //                        // the swipe is vertical:
-        //                        swipeType = Vector2.up * Mathf.Sign(direction.y);
-        //                    }
-
-        //                    if (swipeType.x != 0.0f)
-        //                    {
-        //                        if (swipeType.x > 0.0f)
-        //                        {
-        //                            // MOVE RIGHT
-        //                            rb2d.AddForce(new Vector2(0, 2f));
-        //                        }
-        //                        else {
-        //                            // MOVE LEFT
-        //                            rb2d.AddForce(new Vector2(0, -2f));
-        //                        }
-        //                    }
-
-        //                    if (swipeType.y != 0.0f)
-        //                    {
-        //                        if (swipeType.y > 0.0f)
-        //                        {
-        //                            // MOVE UP
-        //                        }
-        //                        else {
-        //                            // MOVE DOWN
-        //                        }
-        //                    }
-
-        //                }
-        //                Debug.Log("ended");
-        //                break;
-        //        }
-        //    }
-        //}
-
-        //if (direction == 1)
-        //{
-        //    if (rb2d.velocity.x < 12f)
-        //    {
-        //        rb2d.AddForce(new Vector2(30f, 0));
-        //    }
-        //}
-        //else if (direction == -1)
-        //{
-        //    if (rb2d.velocity.x > -12f)
-        //    {
-        //        rb2d.AddForce(new Vector2(-30f, 0));
-        //    }
-        //}
     }
 
     void OnEnable()
@@ -245,6 +167,18 @@ public class snowman : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log(collider.name);
+        if (collider.tag == "Ground")
+        {
+            if (collider.name == "first_piece" || collider.name == "second_piece")
+            {
+                groundToAddShadowTo = collider.gameObject;
+            }
+        }
+    }
+    
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag != "Ground")
