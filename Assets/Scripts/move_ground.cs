@@ -8,7 +8,9 @@ public class move_ground : MonoBehaviour {
     public GameObject firstPiece;
     public GameObject secondPiece;
     public GameObject[] hazards;
+    public float speed = 0;
 
+    private float speedMagnitude = 1;
     private GameObject pieceToDrawOn;
     private int objectsToCreate = 2;
 
@@ -21,7 +23,18 @@ public class move_ground : MonoBehaviour {
             firstPiece.transform.position.y - offset.y, 
             firstPiece.transform.position.z - offset.z);
 
-        AddHazards(firstPiece);
+        GameObject obj = hazards[Random.Range(0, hazards.GetLength(0))];
+
+        var yMin = (50 / objectsToCreate) * 1;
+        var yMax = (50 / objectsToCreate) * 2;
+
+        Vector3 vector = firstPiece.transform.TransformVector(new Vector3(Random.Range(-6, 6), Random.Range(yMin, yMax), 1.5f));
+
+        vector.x = firstPiece.transform.position.x - vector.x;
+        vector.y = firstPiece.transform.position.y - vector.y;
+        vector.z = firstPiece.transform.position.z - vector.z;
+
+        Instantiate(obj, vector, Quaternion.identity, firstPiece.transform);
 
         pieceToDrawOn = firstPiece;
         AddHazards(secondPiece);
@@ -46,7 +59,7 @@ public class move_ground : MonoBehaviour {
         }       
     }
 
-    void UpdatePositionAndSpeed(GameObject pieceToMove, GameObject otherPiece)
+    void UpdatePosition(GameObject pieceToMove, GameObject otherPiece)
     {
         Vector3 offset = otherPiece.transform.TransformVector(new Vector3(0, 50f, 0));
 
@@ -54,12 +67,7 @@ public class move_ground : MonoBehaviour {
             otherPiece.transform.position.y - offset.y,
             otherPiece.transform.position.z - offset.z);
 
-        // increase speed
-        AutoMoveAndRotate pieceToMoveScript = pieceToMove.GetComponent<AutoMoveAndRotate>();
-        pieceToMoveScript.moveUnitsPerSecond.value = new Vector3(0, pieceToMoveScript.moveUnitsPerSecond.value.y + 1, 0);
-
-        AutoMoveAndRotate otherMoveScript = otherPiece.GetComponent<AutoMoveAndRotate>();
-        otherMoveScript.moveUnitsPerSecond.value = new Vector3(0, otherMoveScript.moveUnitsPerSecond.value.y + 1, 0);
+        speedMagnitude += 0.1f;
 
         AddHazards(pieceToMove);
     }
@@ -72,14 +80,20 @@ public class move_ground : MonoBehaviour {
             firstPiece.transform.parent.transform.localEulerAngles = new Vector3(
                 firstPiece.transform.parent.transform.localEulerAngles.x - (.5f * Time.deltaTime), 0, 0);
         }
-       
+
+        AutoMoveAndRotate pieceToMoveScript = firstPiece.GetComponent<AutoMoveAndRotate>();
+        pieceToMoveScript.moveUnitsPerSecond.value = new Vector3(0, speed * speedMagnitude, 0);
+
+        AutoMoveAndRotate otherMoveScript = secondPiece.GetComponent<AutoMoveAndRotate>();
+        otherMoveScript.moveUnitsPerSecond.value = new Vector3(0, speed * speedMagnitude, 0);
+
         if (firstPiece.transform.position.y > 50f)
         {
-            UpdatePositionAndSpeed(firstPiece, secondPiece);
+            UpdatePosition(firstPiece, secondPiece);
         }
         if (secondPiece.transform.position.y > 50f)
         {
-            UpdatePositionAndSpeed(secondPiece, firstPiece);
+            UpdatePosition(secondPiece, firstPiece);
         }
     }
 }

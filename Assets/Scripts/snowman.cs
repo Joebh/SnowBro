@@ -7,6 +7,7 @@ public class snowman : MonoBehaviour {
 
     public MonoBehaviour[] scriptsToPause;
     public GameObject shadow;
+    public move_ground ground;
 
     static public float score = -1f;
 
@@ -55,35 +56,42 @@ public class snowman : MonoBehaviour {
 
         if (groundToAddShadowTo)
         {
-            Instantiate(shadow, gameObject.transform.position, Quaternion.identity, groundToAddShadowTo.transform);
+            Vector3 shadowPosition = gameObject.transform.position;
+            shadowPosition.y -= 0.8f;
+            shadowPosition.z += 6;
+            GameObject createdShadow = Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
         }
         anim.SetFloat("horizontal_speed", rb2d.velocity.x);
 
         float absX = Mathf.Abs(rb2d.velocity.x);
-        float forceUp = 0;
         if (absX < 6f)
         {
-            // controls how fast snowbro goes down
-            if (rb2d.velocity.y > -12f)
+            // increase speed
+            if (ground.speed < 12)
             {
-                forceUp = (absX - 6) * 20;
+                ground.speed += (6 - absX) * Time.deltaTime;
+
+                if (ground.speed > 12)
+                {
+                    ground.speed = 12;
+                }
             }
         }
         else
         {
-            // how fast you can cut up hill
-            if (rb2d.velocity.y < 10f)
+            // decrease speed
+            if (ground.speed > 0)
             {
-                forceUp = (absX - 6) * 30;
+                ground.speed -= (absX - 6) * Time.deltaTime * 0.5f;
+
+                if (ground.speed < 0)
+                {
+                    ground.speed = 0;
+                }
             }
         }
-        //else
-        //{
-        //    rb2d.velocity = new Vector3(rb2d.velocity.x, 0, 0);
-        //}
         
-        rb2d.AddForce(new Vector2(0, forceUp * Time.deltaTime));
-
+        
         if (Input.GetMouseButtonUp(0))
         {
             dragging = false;
