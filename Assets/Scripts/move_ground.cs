@@ -11,7 +11,6 @@ public class move_ground : MonoBehaviour {
     public float speed = 0;
 
     private float speedMagnitude = 1;
-    private GameObject pieceToDrawOn;
     private int objectsToCreate = 2;
 
     // Use this for initialization
@@ -35,8 +34,7 @@ public class move_ground : MonoBehaviour {
         vector.z = firstPiece.transform.position.z - vector.z;
 
         Instantiate(obj, vector, Quaternion.identity, firstPiece.transform);
-
-        pieceToDrawOn = firstPiece;
+        
         AddHazards(secondPiece);
     }
 

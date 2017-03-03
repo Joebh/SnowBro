@@ -20,10 +20,10 @@ public class snowman : MonoBehaviour {
     private int body = 3;
     private Rigidbody2D rb2d;
     private Animator anim;
-    
-    private Vector3 startPosition;
+
+    private float gravity = 10f;
+    private float horizontalAngle = 0;
     private bool dragging = false;
-    private int directionTravelling = 0;
     private GameObject groundToAddShadowTo;
     
     // Use this for initialization
@@ -37,14 +37,7 @@ public class snowman : MonoBehaviour {
             -Camera.main.orthographicSize, //bottom
             Camera.main.orthographicSize, //top
             0.3f, //near 
-            1000f); //far
-
-        foreach (MonoBehaviour mb in scriptsToPause)
-        {
-            mb.enabled = false;
-        }
-
-        anim.SetTrigger("DropIn");
+            1000f); //far        
     }
 
     // Update is called once per frame
@@ -59,38 +52,9 @@ public class snowman : MonoBehaviour {
             Vector3 shadowPosition = gameObject.transform.position;
             shadowPosition.y -= 0.8f;
             shadowPosition.z += 6;
-            GameObject createdShadow = Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
+            Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
         }
-        anim.SetFloat("horizontal_speed", rb2d.velocity.x);
-
-        float absX = Mathf.Abs(rb2d.velocity.x);
-        if (absX < 6f)
-        {
-            // increase speed
-            if (ground.speed < 12)
-            {
-                ground.speed += (6 - absX) * Time.deltaTime;
-
-                if (ground.speed > 12)
-                {
-                    ground.speed = 12;
-                }
-            }
-        }
-        else
-        {
-            // decrease speed
-            if (ground.speed > 0)
-            {
-                ground.speed -= (absX - 6) * Time.deltaTime * 0.5f;
-
-                if (ground.speed < 0)
-                {
-                    ground.speed = 0;
-                }
-            }
-        }
-        
+        anim.SetFloat("horizontal_angle", horizontalAngle);
         
         if (Input.GetMouseButtonUp(0))
         {
@@ -99,44 +63,26 @@ public class snowman : MonoBehaviour {
 
         if (dragging)
         {
-            Vector2 direction = Input.mousePosition - startPosition;
-            float magnitude = 0;
-
-            if (direction.x > 0)
+            Vector2 screenPointOfSnowman = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+            float possibleAngle = (Mathf.Atan2(screenPointOfSnowman.y - Input.mousePosition.y, screenPointOfSnowman.x - Input.mousePosition.x) * 180 / Mathf.PI) - 90;
+          
+            if (possibleAngle < 80 && possibleAngle > -80)
             {
-                if (directionTravelling == -1)
-                {
-                    startPosition = Input.mousePosition;
-                }
-                directionTravelling = 1;
-                if (rb2d.velocity.x < 14f)
-                {
-                    magnitude = direction.magnitude;
-                }
+                horizontalAngle = possibleAngle;
             }
-            else
-            {
-                if (directionTravelling == 1)
-                {
-                    // switched directions
-                    startPosition = Input.mousePosition;
-                }
-                directionTravelling = -1;
-                if (rb2d.velocity.x > -14f)
-                {
-                    magnitude = -direction.magnitude;
-                }
-            }
-
-            rb2d.AddForce(new Vector2(magnitude * Time.deltaTime * 10, 0));
         }
+        
+        float across = gravity * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
+        float down =  Mathf.Cos(Mathf.Deg2Rad * horizontalAngle) * gravity;
+
+        rb2d.velocity = new Vector2(across, down);
+        ground.speed = down;
 
         if (Input.GetMouseButtonDown(0))
         {
             dragging = true;
-            directionTravelling = 0;
-            startPosition = Input.mousePosition;
         }
+        
     }
 
     void OnEnable()
@@ -177,7 +123,6 @@ public class snowman : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.name);
         if (collider.tag == "Ground")
         {
             if (collider.name == "first_piece" || collider.name == "second_piece")
