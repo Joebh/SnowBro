@@ -21,7 +21,8 @@ public class snowman : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
 
-    private float gravity = 10f;
+    private Vector3 previousLocation;
+    private float gravity = 8f;
     private float horizontalAngle = 0;
     private bool dragging = false;
     private GameObject groundToAddShadowTo;
@@ -37,7 +38,20 @@ public class snowman : MonoBehaviour {
             -Camera.main.orthographicSize, //bottom
             Camera.main.orthographicSize, //top
             0.3f, //near 
-            1000f); //far        
+            1000f); //far
+
+        previousLocation = gameObject.transform.position;
+    }
+
+    void AddShadow()
+    {
+        if (groundToAddShadowTo)
+        {
+            Vector3 shadowPosition = gameObject.transform.position;
+            shadowPosition.y -= 0.8f;
+            shadowPosition.z += 6;
+            Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
+        }
     }
 
     // Update is called once per frame
@@ -46,14 +60,16 @@ public class snowman : MonoBehaviour {
         {
             return;
         }
-
-        if (groundToAddShadowTo)
-        {
-            Vector3 shadowPosition = gameObject.transform.position;
-            shadowPosition.y -= 0.8f;
-            shadowPosition.z += 6;
-            Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
-        }
+        
+        //Vector3 loc = previousLocation - gameObject.transform.position;
+        //Debug.Log(loc.magnitude);
+        //if (loc.magnitude > .2f)
+        //{
+        //    AddShadow();
+        //    previousLocation = gameObject.transform.position;
+        //}
+        
+        
         anim.SetFloat("horizontal_angle", horizontalAngle);
         
         if (Input.GetMouseButtonUp(0))
@@ -65,11 +81,22 @@ public class snowman : MonoBehaviour {
         {
             Vector2 screenPointOfSnowman = Camera.main.WorldToScreenPoint(gameObject.transform.position);
             float possibleAngle = (Mathf.Atan2(screenPointOfSnowman.y - Input.mousePosition.y, screenPointOfSnowman.x - Input.mousePosition.x) * 180 / Mathf.PI) - 90;
-          
-            if (possibleAngle < 80 && possibleAngle > -80)
+            
+            if (possibleAngle < -90)
             {
-                horizontalAngle = possibleAngle;
+                possibleAngle = (possibleAngle + 180) * -1;
             }
+
+            if (possibleAngle < -80)
+            {
+                possibleAngle = -80;
+            }
+            else if (possibleAngle > 80)
+            {
+                possibleAngle = 80;
+            }
+
+            horizontalAngle = possibleAngle;
         }
         
         float across = gravity * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
@@ -152,7 +179,7 @@ public class snowman : MonoBehaviour {
             anim.SetTrigger("DeathByHottub");
             dead = true;            
         }
-        else if (other.collider.name.StartsWith("shot"))
+        else if (other.collider.name.StartsWith("martini"))
         {
             anim.SetTrigger("TakeShot");
             body--;

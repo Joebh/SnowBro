@@ -10,7 +10,7 @@ public class move_ground : MonoBehaviour {
     public GameObject[] hazards;
     public float speed = 0;
 
-    private float speedMagnitude = 1;
+    private float speedMagnitude = .04f;
     private int objectsToCreate = 2;
 
     // Use this for initialization
@@ -65,7 +65,7 @@ public class move_ground : MonoBehaviour {
             otherPiece.transform.position.y - offset.y,
             otherPiece.transform.position.z - offset.z);
 
-        speedMagnitude += 0.1f;
+        speedMagnitude += 0.002f;
 
         AddHazards(pieceToMove);
     }
@@ -79,12 +79,6 @@ public class move_ground : MonoBehaviour {
                 firstPiece.transform.parent.transform.localEulerAngles.x - (.5f * Time.deltaTime), 0, 0);
         }
 
-        AutoMoveAndRotate pieceToMoveScript = firstPiece.GetComponent<AutoMoveAndRotate>();
-        pieceToMoveScript.moveUnitsPerSecond.value = new Vector3(0, speed * speedMagnitude, 0);
-
-        AutoMoveAndRotate otherMoveScript = secondPiece.GetComponent<AutoMoveAndRotate>();
-        otherMoveScript.moveUnitsPerSecond.value = new Vector3(0, speed * speedMagnitude, 0);
-
         if (firstPiece.transform.position.y > 50f)
         {
             UpdatePosition(firstPiece, secondPiece);
@@ -93,5 +87,16 @@ public class move_ground : MonoBehaviour {
         {
             UpdatePosition(secondPiece, firstPiece);
         }
+
+        Vector3 offset = firstPiece.transform.TransformVector(new Vector3(0, speed * speedMagnitude, 0));
+
+        firstPiece.transform.position = new Vector3(0,
+            firstPiece.transform.position.y + offset.y,
+            firstPiece.transform.position.z + offset.z);
+
+        secondPiece.transform.position = new Vector3(0,
+            secondPiece.transform.position.y + offset.y,
+            secondPiece.transform.position.z + offset.z);
+
     }
 }
