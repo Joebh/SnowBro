@@ -9,6 +9,7 @@ public class move_ground : MonoBehaviour {
     public GameObject secondPiece;
     public GameObject[] hazards;
     public float speed = 0;
+    public float distanceTravelled = 0;
 
     private float speedMagnitude = .04f;
     private int objectsToCreate = 2;
@@ -89,6 +90,8 @@ public class move_ground : MonoBehaviour {
         }
 
         Vector3 offset = firstPiece.transform.TransformVector(new Vector3(0, speed * speedMagnitude, 0));
+
+        distanceTravelled += offset.magnitude;
 
         firstPiece.transform.position = new Vector3(0,
             firstPiece.transform.position.y + offset.y,

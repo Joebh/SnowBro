@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class snowman : MonoBehaviour {
 
     public MonoBehaviour[] scriptsToPause;
-    public GameObject shadow;
     public move_ground ground;
 
     static public float score = -1f;
@@ -17,21 +16,26 @@ public class snowman : MonoBehaviour {
     private int arms = 2;
 
     // number of body 3 is the largest
-    private int body = 3;
+    private int bodyDamage = 0;
     private Rigidbody2D rb2d;
     private Animator anim;
 
-    private Vector3 previousLocation;
+    private Vector3 groundTravelled;
+    private GameObject previousGround;
     private float gravity = 8f;
+    private bool turningRight = true;
     private float horizontalAngle = 0;
     private bool dragging = false;
     private GameObject groundToAddShadowTo;
+    private GameObject otherPiece;
+    private LineRenderer lineRenderer;
     
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.velocity = Vector2.zero;
         anim = GetComponent<Animator>();
+        lineRenderer = GetComponent<LineRenderer>();
 
         Camera.main.projectionMatrix = Matrix4x4.Ortho(-Camera.main.orthographicSize * 1.6f, //left
             Camera.main.orthographicSize * 1.6f, //right
@@ -39,19 +43,63 @@ public class snowman : MonoBehaviour {
             Camera.main.orthographicSize, //top
             0.3f, //near 
             1000f); //far
+        
+        anim.SetTrigger("TurnRight");
 
-        previousLocation = gameObject.transform.position;
+        Invoke("AddShadow", .1f);
     }
 
     void AddShadow()
     {
         if (groundToAddShadowTo)
         {
+            Vector3[] shadowPositions = new Vector3[40];
+            lineRenderer.GetPositions(shadowPositions);
+
+            if (groundTravelled != null)
+            {
+                for (int i = shadowPositions.Length - 1; i >= 1; i--)
+                {
+                    shadowPositions[i] = shadowPositions[i - 1];
+                }
+            }
+            
             Vector3 shadowPosition = gameObject.transform.position;
-            shadowPosition.y -= 0.8f;
-            shadowPosition.z += 6;
-            Instantiate(shadow, shadowPosition, Quaternion.identity, groundToAddShadowTo.transform);
+            shadowPosition.y -= .5f;
+            shadowPosition.z = -2f;
+            shadowPositions[0] = shadowPosition;
+
+            lineRenderer.SetPositions(shadowPositions);
         }
+
+        Invoke("AddShadow", .1f);
+    }
+
+    void UpdateShadows()
+    {     
+        if (groundTravelled != null)
+        {
+            Vector3[] shadowPositions = new Vector3[40];
+            lineRenderer.GetPositions(shadowPositions);
+            for (int i = 1; i < shadowPositions.Length; i++)
+            {
+                if (groundToAddShadowTo != previousGround)
+                {
+                    shadowPositions[i].y -= (groundTravelled.y - otherPiece.transform.position.y);
+                    shadowPositions[i].z -= (groundTravelled.z - otherPiece.transform.position.z);
+                }
+                else
+                {
+                    shadowPositions[i].y -= (groundTravelled.y - groundToAddShadowTo.transform.position.y);
+                    shadowPositions[i].z -= (groundTravelled.z - groundToAddShadowTo.transform.position.z);
+                }
+            }
+
+            lineRenderer.SetPositions(shadowPositions);
+        }
+
+        previousGround = groundToAddShadowTo;
+        groundTravelled = groundToAddShadowTo.transform.position;
     }
 
     // Update is called once per frame
@@ -60,16 +108,9 @@ public class snowman : MonoBehaviour {
         {
             return;
         }
-        
-        //Vector3 loc = previousLocation - gameObject.transform.position;
-        //Debug.Log(loc.magnitude);
-        //if (loc.magnitude > .2f)
-        //{
-        //    AddShadow();
-        //    previousLocation = gameObject.transform.position;
-        //}
-        
-        
+
+        UpdateShadows();
+
         anim.SetFloat("horizontal_angle", horizontalAngle);
         
         if (Input.GetMouseButtonUp(0))
@@ -95,8 +136,17 @@ public class snowman : MonoBehaviour {
             {
                 possibleAngle = 80;
             }
-
+            
             horizontalAngle = possibleAngle;
+
+            // if not turning right
+            if (!turningRight && horizontalAngle > 0)
+            {
+                turningRight = true;
+            }
+            else if (turningRight && horizontalAngle < 0) {
+                turningRight = false;
+            }
         }
         
         float across = gravity * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
@@ -126,7 +176,7 @@ public class snowman : MonoBehaviour {
     {
         anim.SetTrigger("Walk");
 
-        if (arms == 0 || body == 0)
+        if (arms == 0 || bodyDamage == 3)
         {
             dead = true;
         }
@@ -143,7 +193,8 @@ public class snowman : MonoBehaviour {
         }
         else
         {
-            score = Mathf.Round(Time.timeSinceLevelLoad * 100f) / 100f;
+            
+            score = Mathf.Round(ground.distanceTravelled * 1000.0f) / 1000.0f;
             SceneManager.LoadScene("intro");
         }
     }
@@ -154,6 +205,7 @@ public class snowman : MonoBehaviour {
         {
             if (collider.name == "first_piece" || collider.name == "second_piece")
             {
+                otherPiece = groundToAddShadowTo;
                 groundToAddShadowTo = collider.gameObject;
             }
         }
@@ -182,7 +234,10 @@ public class snowman : MonoBehaviour {
         else if (other.collider.name.StartsWith("martini"))
         {
             anim.SetTrigger("TakeShot");
-            body--;
+            bodyDamage++;
+            anim.SetInteger("body_damage", bodyDamage);
+
+            
         }
         else if (other.collider.name.StartsWith("bro")) {
             anim.SetTrigger("HighFive");

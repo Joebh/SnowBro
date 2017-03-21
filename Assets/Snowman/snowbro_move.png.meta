@@ -1,0 +1,756 @@
+fileFormatVersion: 2
+guid: 1663abb67315f3d42b3dd8a1907790ac
+timeCreated: 1489852974
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: snowbro_move_0
+    21300002: snowbro_move_1
+    21300004: snowbro_move_2
+    21300006: snowbro_move_3
+    21300008: snowbro_move_4
+    21300010: snowbro_move_5
+    21300012: snowbro_move_6
+    21300014: snowbro_move_7
+    21300016: snowbro_move_8
+    21300018: snowbro_move_9
+    21300020: snowbro_move_10
+    21300022: snowbro_move_11
+    21300024: snowbro_move_12
+    21300026: snowbro_move_13
+    21300028: snowbro_move_14
+    21300030: snowbro_move_15
+    21300032: snowbro_move_16
+    21300034: snowbro_move_17
+    21300036: snowbro_move_18
+    21300038: snowbro_move_19
+    21300040: snowbro_move_20
+    21300042: snowbro_move_21
+    21300044: snowbro_move_22
+    21300046: snowbro_move_23
+    21300048: snowbro_move_24
+    21300050: snowbro_move_25
+    21300052: snowbro_move_26
+    21300054: snowbro_move_27
+    21300056: snowbro_move_28
+    21300058: snowbro_move_29
+    21300060: snowbro_move_30
+    21300062: snowbro_move_31
+    21300064: snowbro_move_32
+    21300066: snowbro_move_33
+    21300068: snowbro_move_34
+    21300070: snowbro_move_35
+    21300072: snowbro_move_36
+    21300074: snowbro_move_37
+    21300076: snowbro_move_38
+    21300078: snowbro_move_39
+    21300080: snowbro_move_40
+    21300082: snowbro_move_41
+    21300084: snowbro_move_42
+    21300086: snowbro_move_43
+    21300088: snowbro_move_44
+    21300090: snowbro_move_45
+    21300092: snowbro_move_46
+    21300094: snowbro_move_47
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snowbro_move_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2768
+        width: 235
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_1
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 2771
+        width: 246
+        height: 494
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_2
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 2794
+        width: 278
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_3
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 2793
+        width: 327
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_4
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 2827
+        width: 379
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_5
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2795
+        width: 370
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_6
+      rect:
+        serializedVersion: 2
+        x: 2136
+        y: 2805
+        width: 346
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_7
+      rect:
+        serializedVersion: 2
+        x: 2506
+        y: 2814
+        width: 353
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_8
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 2212
+        width: 235
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_9
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 2221
+        width: 246
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_10
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 2234
+        width: 278
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_11
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 2245
+        width: 328
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_12
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 2300
+        width: 379
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_13
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 2274
+        width: 374
+        height: 497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_14
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 2297
+        width: 347
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_15
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 2313
+        width: 352
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_16
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1701
+        width: 288
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_17
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1714
+        width: 254
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_18
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1724
+        width: 280
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_19
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1711
+        width: 338
+        height: 431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_20
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 1725
+        width: 394
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_21
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 1689
+        width: 375
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_22
+      rect:
+        serializedVersion: 2
+        x: 2256
+        y: 1699
+        width: 351
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_23
+      rect:
+        serializedVersion: 2
+        x: 2637
+        y: 1702
+        width: 346
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_24
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1145
+        width: 288
+        height: 425
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_25
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 1137
+        width: 253
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_26
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 1141
+        width: 280
+        height: 428
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_27
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1153
+        width: 338
+        height: 433
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_28
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1197
+        width: 393
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_29
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 1205
+        width: 375
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_30
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 1235
+        width: 351
+        height: 398
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_31
+      rect:
+        serializedVersion: 2
+        x: 2637
+        y: 1263
+        width: 346
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_32
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 771
+        width: 312
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_33
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 766
+        width: 280
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_34
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 755
+        width: 287
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_35
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 755
+        width: 303
+        height: 349
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_36
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 773
+        width: 310
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_37
+      rect:
+        serializedVersion: 2
+        x: 1797
+        y: 752
+        width: 307
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_38
+      rect:
+        serializedVersion: 2
+        x: 2163
+        y: 778
+        width: 343
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_39
+      rect:
+        serializedVersion: 2
+        x: 2561
+        y: 792
+        width: 343
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_40
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 362
+        width: 313
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_41
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 365
+        width: 280
+        height: 340
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_42
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 353
+        width: 286
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_43
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 338
+        width: 302
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_44
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 365
+        width: 309
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_45
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 355
+        width: 306
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_46
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 383
+        width: 343
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_move_47
+      rect:
+        serializedVersion: 2
+        x: 2574
+        y: 402
+        width: 343
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

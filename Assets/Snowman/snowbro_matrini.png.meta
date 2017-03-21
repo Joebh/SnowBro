@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 57fc653542c0a8047a7ac20788c14987
+timeCreated: 1489851375
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: snowbro_matrini_0
+    21300002: snowbro_matrini_1
+    21300004: snowbro_matrini_2
+    21300006: snowbro_matrini_3
+    21300008: snowbro_matrini_4
+    21300010: snowbro_matrini_5
+    21300012: snowbro_matrini_6
+    21300014: snowbro_matrini_7
+    21300016: snowbro_matrini_8
+    21300018: snowbro_matrini_9
+    21300020: snowbro_matrini_10
+    21300022: snowbro_matrini_11
+    21300024: snowbro_matrini_13
+    21300026: snowbro_matrini_14
+    21300028: snowbro_matrini_15
+    21300030: snowbro_matrini_19
+    21300032: snowbro_matrini_23
+    21300034: snowbro_matrini_24
+    21300036: snowbro_matrini_26
+    21300038: snowbro_matrini_27
+    21300040: snowbro_matrini_28
+    21300042: snowbro_matrini_29
+    21300044: snowbro_matrini_30
+    21300046: snowbro_matrini_31
+    21300048: snowbro_matrini_32
+    21300050: snowbro_matrini_33
+    21300052: snowbro_matrini_34
+    21300054: snowbro_matrini_35
+    21300056: snowbro_matrini_36
+    21300058: snowbro_matrini_37
+    21300060: snowbro_matrini_38
+    21300062: snowbro_matrini_39
+    21300064: snowbro_matrini_40
+    21300066: snowbro_matrini_41
+    21300068: snowbro_matrini_42
+    21300070: snowbro_matrini_43
+    21300072: snowbro_matrini_44
+    21300074: snowbro_matrini_45
+    21300076: snowbro_matrini_46
+    21300078: snowbro_matrini_47
+    21300080: snowbro_matrini_48
+    21300082: snowbro_matrini_49
+    21300084: snowbro_matrini_50
+    21300086: snowbro_matrini_51
+    21300088: snowbro_matrini_52
+    21300090: snowbro_matrini_53
+    21300092: snowbro_matrini_54
+    21300094: snowbro_matrini_55
+    21300096: snowbro_matrini_56
+    21300098: snowbro_matrini_57
+    21300100: snowbro_matrini_58
+    21300102: snowbro_matrini_59
+    21300104: snowbro_matrini_60
+    21300106: snowbro_matrini_61
+    21300108: snowbro_matrini_62
+    21300110: snowbro_matrini_63
+    21300112: snowbro_matrini_64
+    21300114: snowbro_matrini_65
+    21300116: snowbro_matrini_66
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: snowbro_matrini_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1297
+        width: 312
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_1
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1297
+        width: 342
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_2
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1297
+        width: 409
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_3
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 1297
+        width: 408
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_4
+      rect:
+        serializedVersion: 2
+        x: 1818
+        y: 1297
+        width: 408
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_5
+      rect:
+        serializedVersion: 2
+        x: 2286
+        y: 1297
+        width: 408
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_6
+      rect:
+        serializedVersion: 2
+        x: 2821
+        y: 1297
+        width: 408
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_7
+      rect:
+        serializedVersion: 2
+        x: 3345
+        y: 1297
+        width: 409
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_8
+      rect:
+        serializedVersion: 2
+        x: 3810
+        y: 1297
+        width: 420
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_9
+      rect:
+        serializedVersion: 2
+        x: 4288
+        y: 1297
+        width: 415
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_10
+      rect:
+        serializedVersion: 2
+        x: 4719
+        y: 1297
+        width: 436
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_11
+      rect:
+        serializedVersion: 2
+        x: 5208
+        y: 1291
+        width: 413
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_13
+      rect:
+        serializedVersion: 2
+        x: 5668
+        y: 1287
+        width: 416
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_14
+      rect:
+        serializedVersion: 2
+        x: 6214
+        y: 1287
+        width: 408
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_15
+      rect:
+        serializedVersion: 2
+        x: 3751
+        y: 1544
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_23
+      rect:
+        serializedVersion: 2
+        x: 3062
+        y: 1298
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_26
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 699
+        width: 319
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_27
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 699
+        width: 358
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_28
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_29
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_30
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_31
+      rect:
+        serializedVersion: 2
+        x: 2309
+        y: 699
+        width: 409
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_32
+      rect:
+        serializedVersion: 2
+        x: 2847
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_33
+      rect:
+        serializedVersion: 2
+        x: 3369
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_34
+      rect:
+        serializedVersion: 2
+        x: 3842
+        y: 699
+        width: 413
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_35
+      rect:
+        serializedVersion: 2
+        x: 4318
+        y: 699
+        width: 408
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_36
+      rect:
+        serializedVersion: 2
+        x: 4760
+        y: 699
+        width: 420
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_37
+      rect:
+        serializedVersion: 2
+        x: 5231
+        y: 699
+        width: 409
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_45
+      rect:
+        serializedVersion: 2
+        x: 5690
+        y: 699
+        width: 413
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_46
+      rect:
+        serializedVersion: 2
+        x: 6238
+        y: 699
+        width: 411
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_47
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 40
+        width: 335
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_48
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 40
+        width: 355
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_49
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 40
+        width: 408
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_50
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 40
+        width: 408
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_51
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 40
+        width: 408
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_52
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 40
+        width: 422
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_53
+      rect:
+        serializedVersion: 2
+        x: 2870
+        y: 40
+        width: 425
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_54
+      rect:
+        serializedVersion: 2
+        x: 3398
+        y: 40
+        width: 419
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_55
+      rect:
+        serializedVersion: 2
+        x: 3857
+        y: 40
+        width: 438
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_56
+      rect:
+        serializedVersion: 2
+        x: 4331
+        y: 40
+        width: 435
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_57
+      rect:
+        serializedVersion: 2
+        x: 4778
+        y: 40
+        width: 443
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_58
+      rect:
+        serializedVersion: 2
+        x: 5268
+        y: 40
+        width: 411
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_63
+      rect:
+        serializedVersion: 2
+        x: 5731
+        y: 40
+        width: 410
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: snowbro_matrini_66
+      rect:
+        serializedVersion: 2
+        x: 6264
+        y: 40
+        width: 408
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

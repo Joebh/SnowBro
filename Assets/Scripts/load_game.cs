@@ -97,8 +97,8 @@ public class load_game : MonoBehaviour {
         if (snowman.score != -1f)
         {
             var loadText = GetComponentInChildren<Text>();
-
-            loadText.text = "You only lasted " + snowman.score + " seconds brah.\nBro down again?";
+            
+            loadText.text = "You only went " + snowman.score + " feet brah.\nBro down again?";
         }
     }
     
