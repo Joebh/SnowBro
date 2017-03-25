@@ -12,6 +12,8 @@ public class snowman : MonoBehaviour {
 
     private bool dead = false;
 
+    private float maxAngle = 200f;
+
     // number of arms
     private int arms = 2;
 
@@ -22,8 +24,10 @@ public class snowman : MonoBehaviour {
 
     private Vector3 groundTravelled;
     private GameObject previousGround;
-    private float gravity = 8f;
-    private bool turningRight = true;
+    private float speed = 75f;
+    private float minSpeed = 50f;
+    private float maxSpeed = 100f;
+    private float gravity = 3f;
     private float horizontalAngle = 0;
     private bool dragging = false;
     private GameObject groundToAddShadowTo;
@@ -45,6 +49,18 @@ public class snowman : MonoBehaviour {
             1000f); //far
         
         anim.SetTrigger("TurnRight");
+
+        Vector3[] shadowPositions = new Vector3[40];
+        lineRenderer.GetPositions(shadowPositions);
+        for (int i = 0; i < shadowPositions.Length; i++)
+        {
+            Vector3 shadowPosition = gameObject.transform.position;
+            shadowPosition.y -= .5f;
+            shadowPosition.z = -2f;
+            shadowPositions[i] = shadowPosition;
+        }
+
+        lineRenderer.SetPositions(shadowPositions);
 
         Invoke("AddShadow", .1f);
     }
@@ -110,9 +126,7 @@ public class snowman : MonoBehaviour {
         }
 
         UpdateShadows();
-
-        anim.SetFloat("horizontal_angle", horizontalAngle);
-        
+                
         if (Input.GetMouseButtonUp(0))
         {
             dragging = false;
@@ -136,21 +150,52 @@ public class snowman : MonoBehaviour {
             {
                 possibleAngle = 80;
             }
-            
-            horizontalAngle = possibleAngle;
 
-            // if not turning right
-            if (!turningRight && horizontalAngle > 0)
+            float difference = horizontalAngle - possibleAngle;
+            float anglePerFrame = maxAngle * Time.deltaTime;
+            
+            if (Mathf.Abs(difference) > anglePerFrame)
             {
-                turningRight = true;
+                if (possibleAngle < horizontalAngle)
+                {
+                    horizontalAngle -= anglePerFrame;
+                }
+                else if (possibleAngle > horizontalAngle)
+                {
+                    horizontalAngle += anglePerFrame;
+                }
             }
-            else if (turningRight && horizontalAngle < 0) {
-                turningRight = false;
+            else
+            {
+                horizontalAngle = possibleAngle;                
+            }
+            
+            
+        }
+
+        if (horizontalAngle < 30 && horizontalAngle > -30)
+        {
+            speed += (10 * Time.deltaTime);
+
+            if (speed > maxSpeed)
+            {
+                speed = maxSpeed;
             }
         }
-        
-        float across = gravity * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
-        float down =  Mathf.Cos(Mathf.Deg2Rad * horizontalAngle) * gravity;
+
+        if (horizontalAngle > 60 || horizontalAngle < -60)
+        {
+            speed -= (5 * Time.deltaTime);
+
+            if (speed < minSpeed)
+            {
+                speed = minSpeed;
+            }
+        }
+        anim.SetFloat("horizontal_angle", horizontalAngle);
+
+        float across = (speed * gravity * Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
+        float down =  Mathf.Cos(Mathf.Deg2Rad * horizontalAngle) * (speed * gravity * Time.deltaTime);
 
         rb2d.velocity = new Vector2(across, down);
         ground.speed = down;

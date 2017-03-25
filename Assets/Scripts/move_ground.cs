@@ -7,12 +7,16 @@ public class move_ground : MonoBehaviour {
     
     public GameObject firstPiece;
     public GameObject secondPiece;
+    public GameObject snow;
     public GameObject[] hazards;
     public float speed = 0;
     public float distanceTravelled = 0;
 
     private float speedMagnitude = .04f;
     private int objectsToCreate = 2;
+    private Vector2 savedOffset;
+    private Vector2 usedOffset;
+    private Renderer myRenderer;
 
     // Use this for initialization
     void Start () {
@@ -35,7 +39,10 @@ public class move_ground : MonoBehaviour {
         vector.z = firstPiece.transform.position.z - vector.z;
 
         Instantiate(obj, vector, Quaternion.identity, firstPiece.transform);
-        
+
+        myRenderer = snow.GetComponent<Renderer>();
+        usedOffset = new Vector2(0, 0);
+
         AddHazards(secondPiece);
     }
 
@@ -70,6 +77,7 @@ public class move_ground : MonoBehaviour {
 
         AddHazards(pieceToMove);
     }
+
         
     // Update is called once per frame
     void Update () {
@@ -100,6 +108,20 @@ public class move_ground : MonoBehaviour {
         secondPiece.transform.position = new Vector3(0,
             secondPiece.transform.position.y + offset.y,
             secondPiece.transform.position.z + offset.z);
+
+        if (snow.transform.position.y < -10)
+        {
+            snow.transform.position = new Vector3(0,
+                snow.transform.position.y + offset.y,
+                snow.transform.position.z + offset.z);
+        }
+        else
+        {
+            usedOffset.y = (usedOffset.y - (offset.y / 100 * 50)) % -1;
+            myRenderer.sharedMaterial.SetTextureOffset("_MainTex", usedOffset);
+        }
+
+        
 
     }
 }
