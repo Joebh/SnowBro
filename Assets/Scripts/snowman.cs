@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class snowman : MonoBehaviour {
-
-    public MonoBehaviour[] scriptsToPause;
+    
     public move_ground ground;
+    public GameObject explosion;
 
     static public float score = -1f;
 
@@ -22,11 +22,16 @@ public class snowman : MonoBehaviour {
     private Rigidbody2D rb2d;
     private Animator anim;
 
+    private GameObject jumpToGameObject = null;
+    private bool jumpToHottub = false;
+
+    private bool playingAnimation = false;
     private Vector3 groundTravelled;
     private GameObject previousGround;
     private float speed = 75f;
     private float minSpeed = 50f;
     private float maxSpeed = 100f;
+    private float boosted = 0;
     private float gravity = 3f;
     private float horizontalAngle = 0;
     private bool dragging = false;
@@ -37,7 +42,6 @@ public class snowman : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.velocity = Vector2.zero;
         anim = GetComponent<Animator>();
         lineRenderer = GetComponent<LineRenderer>();
 
@@ -48,8 +52,6 @@ public class snowman : MonoBehaviour {
             0.3f, //near 
             1000f); //far
         
-        anim.SetTrigger("TurnRight");
-
         Vector3[] shadowPositions = new Vector3[40];
         lineRenderer.GetPositions(shadowPositions);
         for (int i = 0; i < shadowPositions.Length; i++)
@@ -67,7 +69,7 @@ public class snowman : MonoBehaviour {
 
     void AddShadow()
     {
-        if (groundToAddShadowTo)
+        if (groundToAddShadowTo && !playingAnimation)
         {
             Vector3[] shadowPositions = new Vector3[40];
             lineRenderer.GetPositions(shadowPositions);
@@ -125,8 +127,37 @@ public class snowman : MonoBehaviour {
             return;
         }
 
-        UpdateShadows();
-                
+        if (playingAnimation)
+        {
+            if (jumpToHottub)
+            {
+                rb2d.constraints = RigidbodyConstraints2D.None;
+                BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
+                CircleCollider2D circleCollider = gameObject.GetComponent<CircleCollider2D>();
+                collider.isTrigger = true;
+                circleCollider.isTrigger = true;
+
+                Physics2D.gravity = new Vector2(0, -3f);
+                rb2d.AddForce(new Vector2(
+                    (jumpToGameObject.transform.position.x - gameObject.transform.position.x) * 100, 
+                    300));
+
+                jumpToHottub = false;
+            }
+
+            if (gameObject.transform.position.y < jumpToGameObject.transform.position.y)
+            {
+                GameObject expl = Instantiate(explosion, transform.position, Quaternion.identity) as GameObject;
+                Invoke("OnAnimationDone", 3);
+                enabled = false;
+                gameObject.GetComponent<Renderer>().enabled = false;
+            }
+
+            return;
+        }
+        
+        UpdateShadows();       
+
         if (Input.GetMouseButtonUp(0))
         {
             dragging = false;
@@ -194,9 +225,19 @@ public class snowman : MonoBehaviour {
         }
         anim.SetFloat("horizontal_angle", horizontalAngle);
 
-        float across = (speed * gravity * Time.deltaTime) * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
-        float down =  Mathf.Cos(Mathf.Deg2Rad * horizontalAngle) * (speed * gravity * Time.deltaTime);
+        float value = (speed + boosted) * gravity * Time.deltaTime;
+        float across = value * Mathf.Sin(Mathf.Deg2Rad * horizontalAngle);
+        float down =  Mathf.Cos(Mathf.Deg2Rad * horizontalAngle) * value;
+        
+        if (boosted != 0)
+        {
+            boosted -= 5 * Time.deltaTime;
 
+            if (boosted < 0)
+            {
+                boosted = 0;
+            }
+        }
         rb2d.velocity = new Vector2(across, down);
         ground.speed = down;
 
@@ -206,17 +247,7 @@ public class snowman : MonoBehaviour {
         }
         
     }
-
-    void OnEnable()
-    {
-        Debug.Log("enabled");
-    }
-
-    void OnDisabled()
-    {
-        Debug.Log("disabled");
-    }
-
+    
     void OnAnimationDone()
     {
         anim.SetTrigger("Walk");
@@ -228,13 +259,9 @@ public class snowman : MonoBehaviour {
 
         if (!dead)
         {
-            enabled = true;
+            playingAnimation = false;
 
-            foreach (MonoBehaviour mb in scriptsToPause)
-            {
-                mb.enabled = true;
-            }
-            
+            ground.enabled = true;
         }
         else
         {
@@ -255,38 +282,41 @@ public class snowman : MonoBehaviour {
             }
         }
     }
+
+    void disableScripts()
+    {
+        ground.enabled = false;
+
+        playingAnimation = true;
+        rb2d.velocity = new Vector3(0, 0, 0);
+    }
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.tag != "Ground")
-        {
-            Destroy(other.collider.gameObject);
-
-            foreach (MonoBehaviour mb in scriptsToPause)
-            {
-                mb.enabled = false;
-            }
-
-            enabled = false;
-            rb2d.velocity = new Vector3(0, 0, 0);
-        }
-
         if (other.collider.name.StartsWith("hottub"))
         {            
             anim.SetTrigger("DeathByHottub");
+            jumpToGameObject = other.collider.gameObject;
+            jumpToHottub = true;
+            disableScripts();
             dead = true;            
         }
         else if (other.collider.name.StartsWith("martini"))
         {
             anim.SetTrigger("TakeShot");
             bodyDamage++;
+            Destroy(other.collider.gameObject);
+            disableScripts();
             anim.SetInteger("body_damage", bodyDamage);
-
-            
         }
         else if (other.collider.name.StartsWith("bro")) {
             anim.SetTrigger("HighFive");
             arms--;
+        }
+        else if (other.collider.name.StartsWith("protein"))
+        {
+            Destroy(other.collider.gameObject);
+            boosted += 30;
         }
     }
 }
